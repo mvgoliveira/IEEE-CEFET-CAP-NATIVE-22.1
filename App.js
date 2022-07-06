@@ -1,60 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Text, TouchableOpacity, Alert } from 'react-native';
+import { View, Text } from 'react-native';
+import { Rajdhani_700Bold, useFonts } from "@expo-google-fonts/rajdhani";
+import { Roboto_400Regular, Roboto_500Medium } from "@expo-google-fonts/roboto";
+import { styles } from "./src/styles";
 
 export default function App() {
-  let [num, setNum] = useState(0);
+  let [fontsLoaded] = useFonts({
+    Rajdhani_700Bold,
+    Roboto_400Regular,
+    Roboto_500Medium
+  })
 
-  function handlePress() {
-    setNum(prevNum => prevNum + 1);
-    //setNum(num + 1);
+  if (!fontsLoaded) {
+    return null;
   }
-
-  useEffect(() => {
-    Alert.alert("Inicio", "O programa iniciou");
-  }, [])
-
-  useEffect(() => {
-    Alert.alert("Contador", `Numero do contador: ${num}`);
-  }, [num])
 
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
-      <Text style={{ fontSize: 20 }}> Contagem: {num} </Text>
-      
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity 
-          activeOpacity={0.5}
-          style={styles.button}
-          onPress={handlePress}
-        >
-          <Text style={{ fontSize: 16 }}> + </Text>
-        </TouchableOpacity>
-      </View>
+      <Text style={styles.title}> Hello world! </Text>
+      <Text style={styles.subTitle}> Iniciando com estilo </Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: "center",
-    alignItems: 'center'
-  },
-
-  buttonContainer: {
-    flexDirection: "row"
-  },
-
-  button: {
-    paddingVertical: 18,
-    paddingHorizontal: 23,
-    marginHorizontal: 15,
-    marginTop: 25,
-    backgroundColor: "#D9D9D9",
-    elevation: 2,
-    borderRadius: 4
-  }
-});

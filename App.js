@@ -1,14 +1,17 @@
 import React from "react";
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import { Routes } from "./src/routes";
-import { Home } from "./src/screens/Home";
+import { StyleSheet, Text, View } from 'react-native';
+import { UserCard } from "./src/components/UserCard";
 
 export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
-      <Routes/>
+      <UserCard name="Marcus Oliveira">
+        <Text style={styles.cargo}>Líder da equipe Web</Text>
+      </UserCard>
+      
+      <UserCard name="Gabriel Renato"/>
     </View>
   );
 }
@@ -16,6 +19,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
+
+  cargo: {
+    color: "#8DBF21"
+  }
 });

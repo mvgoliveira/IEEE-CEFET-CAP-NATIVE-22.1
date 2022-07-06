@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "IEEE-CEFET-CAP-NATIVE-22.1",
-    "slug": "IEEE-CEFET-CAP-NATIVE-22.1",
+    "name": "IEEE",
+    "slug": "IEEE",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
